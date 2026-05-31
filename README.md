@@ -1,2 +1,2 @@
-# Max-funding
+# maxfunding
 The ultimate funding lead generator
