@@ -40,11 +40,24 @@ export function ApplyForm() {
   async function submit() {
     setStatus("sending");
     try {
-      const res = await fetch("/api/lead", {
-        method: "POST", headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(data),
+      const res = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        headers: { "Content-Type": "application/json", Accept: "application/json" },
+        body: JSON.stringify({
+          access_key: "cdaa06fa-12d9-4706-a464-907c807ece66",
+          subject: `New funding lead: ${data.firstName} — ${data.fundingAmount}`,
+          from_name: "Max Funding Website",
+          // lead fields (Web3Forms emails all of these to your inbox):
+          name: `${data.firstName} ${data.lastName}`.trim(),
+          phone: data.phone,
+          email: data.email,
+          funding_amount: data.fundingAmount,
+          monthly_revenue: data.monthlyRevenue,
+          time_in_business: data.timeInBusiness,
+        }),
       });
-      if (!res.ok) throw new Error("bad response");
+      const json = await res.json();
+      if (!json.success) throw new Error("submit failed");
       setStatus("done");
     } catch {
       setStatus("error");
