@@ -15,7 +15,7 @@ export const SITE = {
     "Get competitive rates, transparent terms, and a dedicated strategist. Working capital, equipment financing, SBA loans & more — funded in days. Checking your rate won't affect your credit.",
 
   // 🔴 REPLACE THESE TWO with your real public contact info:
-  phoneDisplay: "(723) 233-2067",          // <-- your phone, as shown
+  phoneDisplay: "(732,) 233-2067",          // <-- your phone, as shown
   phoneE164: "+17322332067",               // <-- same number, +1 + 10 digits, no spaces
   email: "joel@maxfunding.org",                // <-- your public inbox
 
