@@ -18,6 +18,18 @@ const personSchema = {
   url: `${SITE.url}/about`,
 };
 
+const videoSchema = {
+  "@context": "https://schema.org",
+  "@type": "VideoObject",
+  name: "$50K–$500K in 24 Hours — Meet Joel Carbajal, Max Funding MCA Broker",
+  description: "Meet Joel Carbajal — the merchant cash advance broker who gets construction companies, restaurants, retail stores, and trucking businesses funded in as little as 24 hours.",
+  thumbnailUrl: "https://i.ytimg.com/vi/2VWfPoRc5ME/maxresdefault.jpg",
+  uploadDate: "2026-06-02",
+  duration: "PT5S",
+  embedUrl: "https://www.youtube.com/embed/2VWfPoRc5ME",
+  publisher: { "@type": "Organization", name: "Max Funding", url: SITE.url },
+};
+
 const VALUES = [
   ["Speed you can count on", "Joel's relationships with select high-reputation lenders mean your file moves fast — most clients funded in 24 hours, not 90 days."],
   ["People first, always", "Every client gets Joel's direct attention. No call centers, no runaround — just a real person who picks up the phone and gets it done."],
@@ -30,6 +42,7 @@ export default function AboutPage() {
     <>
       <JsonLd data={breadcrumbSchema([{ name: "Home", path: "/" }, { name: "About", path: "/about" }])} />
       <JsonLd data={personSchema} />
+      <JsonLd data={videoSchema} />
 
       <section className="hero" style={{ paddingBottom: 50 }}>
         <div className="wrap">
@@ -52,20 +65,28 @@ export default function AboutPage() {
         </div>
       </div>
 
-      {/* JOEL — mobile stacked, desktop side by side */}
+      {/* JOEL — video + bio */}
       <section>
         <div className="wrap">
-          {/* Photo card — top on mobile */}
-          <div style={{ background: "var(--cream-2)", borderRadius: 22, padding: 32, display: "flex", flexDirection: "column", alignItems: "center", gap: 14, marginBottom: 36 }}>
-            <div style={{ width: 140, height: 140, borderRadius: "50%", background: "linear-gradient(135deg,var(--teal),var(--bronze))", display: "flex", alignItems: "center", justifyContent: "center", fontSize: "2.6rem", color: "var(--cream)", fontFamily: "var(--font-serif),serif", fontWeight: 600 }}>JC</div>
-            <div style={{ textAlign: "center" }}>
-              <div style={{ fontFamily: "var(--font-serif),serif", fontWeight: 600, fontSize: "1.3rem" }}>Joel Carbajal</div>
+          {/* YouTube Short embed — vertical card */}
+          <div style={{ display: "flex", flexDirection: "column", alignItems: "center", marginBottom: 40 }}>
+            <div style={{ width: "100%", maxWidth: 340, borderRadius: 22, overflow: "hidden", boxShadow: "0 20px 60px rgba(16,59,56,.18)", position: "relative" }}>
+              <iframe
+                src="https://www.youtube.com/embed/2VWfPoRc5ME?autoplay=1&mute=1&loop=1&playlist=2VWfPoRc5ME&controls=0&showinfo=0&rel=0&modestbranding=1"
+                style={{ width: "100%", aspectRatio: "9/16", border: "none", display: "block" }}
+                allow="autoplay; encrypted-media"
+                allowFullScreen
+                title="Meet Joel Carbajal — Max Funding MCA Broker"
+              />
+            </div>
+            <div style={{ textAlign: "center", marginTop: 16 }}>
+              <div style={{ fontFamily: "var(--font-serif),serif", fontWeight: 600, fontSize: "1.2rem" }}>Joel Carbajal</div>
               <div style={{ color: "var(--bronze)", fontSize: ".9rem", fontWeight: 600 }}>Founder and MCA Broker</div>
-              <div style={{ color: "var(--ink-soft)", fontSize: ".85rem", marginTop: 4 }}>Max Funding</div>
             </div>
           </div>
-          {/* Bio text — full width, clean on mobile */}
-          <div style={{ maxWidth: 680 }}>
+
+          {/* Bio text */}
+          <div style={{ maxWidth: 680, margin: "0 auto" }}>
             <div className="eyebrow" style={{ marginBottom: 14 }}>The person behind the funding</div>
             <p style={{ color: "var(--ink-soft)", marginBottom: 16, fontSize: "1.05rem" }}>Joel has a rare ability to make people feel at ease in high-stakes moments — heard, understood, and confident that they are in the right hands.</p>
             <p style={{ color: "var(--ink-soft)", marginBottom: 16, fontSize: "1.05rem" }}>Known by many as a loyal friend first, he brings that same energy to every client relationship. He genuinely loves hearing what people are building, what is in the way, and how he can help them move faster.</p>
@@ -119,7 +140,6 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* TESTIMONIAL */}
       <section style={{ paddingTop: 0 }}>
         <div className="wrap">
           <div className="quote">
@@ -129,7 +149,6 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* CTA */}
       <section style={{ paddingTop: 0 }}>
         <div className="wrap">
           <div className="band">
