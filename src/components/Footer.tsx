@@ -26,6 +26,15 @@ export function Footer() {
             <Link href="/industries/trucking-transportation">Trucking</Link>
           </div>
           <div className="col">
+            <h4>Locations</h4>
+            <Link href="/locations/freehold-nj">Freehold, NJ</Link>
+            <Link href="/locations/monmouth-county">Monmouth County</Link>
+            <Link href="/locations/new-jersey">New Jersey</Link>
+            <Link href="/locations/new-york-city">New York City</Link>
+            <Link href="/locations/long-island">Long Island</Link>
+            <Link href="/locations/new-york">New York</Link>
+          </div>
+          <div className="col">
             <h4>Company</h4>
             <Link href="/about">About Joel</Link>
             <Link href="/learn">Learn</Link>
