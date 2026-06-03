@@ -67,7 +67,7 @@ export default function AboutPage() {
           {/* Bio text — full width, clean on mobile */}
           <div style={{ maxWidth: 680 }}>
             <div className="eyebrow" style={{ marginBottom: 14 }}>The person behind the funding</div>
-            <p style={{ color: "var(--ink-soft)", marginBottom: 16, fontSize: "1.05rem" }}>Joel is a natural extrovert with a gift for making people feel comfortable, understood, and confident — especially when securing funding for your business.</p>
+            <p style={{ color: "var(--ink-soft)", marginBottom: 16, fontSize: "1.05rem" }}>Joel has a rare ability to make people feel at ease in high-stakes moments — heard, understood, and confident that they are in the right hands.</p>
             <p style={{ color: "var(--ink-soft)", marginBottom: 16, fontSize: "1.05rem" }}>Known by many as a loyal friend first, he brings that same energy to every client relationship. He genuinely loves hearing what people are building, what is in the way, and how he can help them move faster.</p>
             <p style={{ color: "var(--ink-soft)", marginBottom: 16, fontSize: "1.05rem" }}>Outside of work, Joel stays active in the gym, lives a fit lifestyle, and spends time at the beach. That same drive and discipline show up every day in how he handles client files — with urgency, care, and follow-through.</p>
             <p style={{ color: "var(--ink-soft)", fontSize: "1.05rem" }}>His relationships with select high-reputation lenders mean files move faster than the industry average. Most clients are funded within 24 hours.</p>
