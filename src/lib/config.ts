@@ -6,7 +6,7 @@ export const SITE = {
   description: "Max Funding connects small businesses with $50K–$500K in merchant cash advance funding — in as little as 24 hours. Construction, restaurants, retail, and trucking.",
   phoneDisplay: "(732) 233-2067",
   phoneE164: "+17322332067",
-  email: "you@example.com",
+  email: "joel@maxfunding.org",
   author: "Joel Carbajal, President",
   founder: "Joel Carbajal",
 } as const;
