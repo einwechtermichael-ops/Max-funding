@@ -65,27 +65,57 @@ export default function AboutPage() {
         </div>
       </div>
 
-      {/* JOEL — video + bio */}
       <section>
         <div className="wrap">
-          {/* YouTube Short embed — vertical card */}
+          {/* Thumbnail circle — taps to open YouTube */}
           <div style={{ display: "flex", flexDirection: "column", alignItems: "center", marginBottom: 40 }}>
-            <div style={{ width: "100%", maxWidth: 340, borderRadius: 22, overflow: "hidden", boxShadow: "0 20px 60px rgba(16,59,56,.18)", position: "relative" }}>
-              <iframe
-                src="https://www.youtube.com/embed/2VWfPoRc5ME?autoplay=1&mute=1&loop=1&playlist=2VWfPoRc5ME&controls=0&showinfo=0&rel=0&modestbranding=1"
-                style={{ width: "100%", aspectRatio: "9/16", border: "none", display: "block" }}
-                allow="autoplay; encrypted-media"
-                allowFullScreen
-                title="Meet Joel Carbajal — Max Funding MCA Broker"
+            <a
+              href="https://youtube.com/shorts/2VWfPoRc5ME"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Watch Joel Carbajal intro video"
+              style={{
+                display: "block",
+                width: "min(280px, 80vw)",
+                height: "min(280px, 80vw)",
+                borderRadius: "50%",
+                overflow: "hidden",
+                position: "relative",
+                boxShadow: "0 20px 60px rgba(16,59,56,.25)",
+                border: "5px solid var(--cream-2)",
+                textDecoration: "none",
+              }}
+            >
+              <img
+                src="https://i.ytimg.com/vi/2VWfPoRc5ME/maxresdefault.jpg"
+                alt="Joel Carbajal — Max Funding MCA Broker"
+                style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "center 15%" }}
               />
-            </div>
-            <div style={{ textAlign: "center", marginTop: 16 }}>
-              <div style={{ fontFamily: "var(--font-serif),serif", fontWeight: 600, fontSize: "1.2rem" }}>Joel Carbajal</div>
-              <div style={{ color: "var(--bronze)", fontSize: ".9rem", fontWeight: 600 }}>Founder and MCA Broker</div>
+              {/* Play button overlay */}
+              <div style={{
+                position: "absolute", inset: 0,
+                display: "grid", placeItems: "center",
+                background: "rgba(16,59,56,.2)",
+              }}>
+                <div style={{
+                  width: 64, height: 64, borderRadius: "50%",
+                  background: "rgba(255,255,255,.92)",
+                  display: "grid", placeItems: "center",
+                  boxShadow: "0 4px 20px rgba(0,0,0,.25)",
+                }}>
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                    <path d="M8 5l13 7-13 7V5z" fill="#103B38"/>
+                  </svg>
+                </div>
+              </div>
+            </a>
+            <div style={{ textAlign: "center", marginTop: 18 }}>
+              <div style={{ fontFamily: "var(--font-serif),serif", fontWeight: 600, fontSize: "1.3rem" }}>Joel Carbajal</div>
+              <div style={{ color: "var(--bronze)", fontSize: ".9rem", fontWeight: 600, marginTop: 4 }}>Founder and MCA Broker · Max Funding</div>
             </div>
           </div>
 
-          {/* Bio text */}
+          {/* Bio */}
           <div style={{ maxWidth: 680, margin: "0 auto" }}>
             <div className="eyebrow" style={{ marginBottom: 14 }}>The person behind the funding</div>
             <p style={{ color: "var(--ink-soft)", marginBottom: 16, fontSize: "1.05rem" }}>Joel has a rare ability to make people feel at ease in high-stakes moments — heard, understood, and confident that they are in the right hands.</p>
@@ -96,7 +126,6 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* VALUES */}
       <section style={{ paddingTop: 0 }}>
         <div className="wrap">
           <div className="sec-head">
@@ -114,7 +143,6 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* QUALIFICATION */}
       <section style={{ paddingTop: 0 }}>
         <div className="wrap">
           <div className="split">
