@@ -9,24 +9,27 @@ export function Footer() {
         <div className="foot">
           <div style={{ maxWidth: 320 }}>
             <LogoLockup />
-            <p>Bridging the gap between aspiration and execution for small and mid-sized businesses. Honest lending — no pushy pitches.</p>
+            <p>Fast merchant cash advance funding for construction, restaurants, retail, and trucking. $50K to $500K in as little as 24 hours.</p>
           </div>
           <div className="col">
             <h4>Funding</h4>
-            {FUNDING.slice(0, 4).map((f) => (
-              <Link key={f.slug} href={`/funding/${f.slug}`}>{f.title}</Link>
-            ))}
+            <Link href="/funding/merchant-cash-advance">Merchant Cash Advance</Link>
+            <Link href="/funding/working-capital">Working Capital</Link>
+            <Link href="/funding/equipment-financing">Equipment Financing</Link>
+            <Link href="/funding/sba-loans">SBA Loans</Link>
           </div>
           <div className="col">
             <h4>Industries</h4>
-            {INDUSTRIES.slice(0, 4).map((i) => (
-              <Link key={i.slug} href={`/industries/${i.slug}`}>{i.title}</Link>
-            ))}
+            <Link href="/industries/construction">Construction</Link>
+            <Link href="/industries/restaurants">Restaurants</Link>
+            <Link href="/industries/retail">Retail</Link>
+            <Link href="/industries/trucking-transportation">Trucking</Link>
           </div>
           <div className="col">
             <h4>Company</h4>
-            <Link href="/about">About</Link>
+            <Link href="/about">About Joel</Link>
             <Link href="/learn">Learn</Link>
+            <Link href="/contact">Contact</Link>
             <Link href="/apply">Apply Now</Link>
             <a href={`sms:${SITE.phoneE164}`}>{SITE.phoneDisplay}</a>
           </div>

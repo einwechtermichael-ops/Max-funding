@@ -23,6 +23,10 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en" className={`${fraunces.variable} ${franklin.variable}`}>
+      <head>
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-6J8GBWMQ1G" />
+        <script dangerouslySetInnerHTML={{ __html: `window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','G-6J8GBWMQ1G');` }} />
+      </head>
       <body>
         <JsonLd data={orgSchema()} />
         <Header />

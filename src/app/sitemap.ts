@@ -1,18 +1,27 @@
 import type { MetadataRoute } from "next";
 import { SITE, FUNDING, INDUSTRIES } from "@/lib/config";
 
+const ARTICLE_SLUGS = [
+  "how-does-a-merchant-cash-advance-work",
+  "how-to-get-funding-for-your-restaurant",
+  "merchant-cash-advance-for-construction-companies",
+  "merchant-cash-advance-for-retail-businesses",
+];
+
 export default function sitemap(): MetadataRoute.Sitemap {
   const now = new Date();
-  const stat = (path: string, priority = 0.7): MetadataRoute.Sitemap[number] => ({
+  const s = (path: string, priority = 0.7): MetadataRoute.Sitemap[number] => ({
     url: `${SITE.url}${path}`, lastModified: now, changeFrequency: "weekly", priority,
   });
-
   return [
-    stat("/", 1),
-    stat("/apply", 0.9),
-    stat("/about", 0.6),
-    stat("/learn", 0.6),
-    ...FUNDING.map((f) => stat(`/funding/${f.slug}`, 0.8)),
-    ...INDUSTRIES.map((i) => stat(`/industries/${i.slug}`, 0.8)),
+    s("/", 1),
+    s("/apply", 0.9),
+    s("/funding/merchant-cash-advance", 0.95),
+    s("/about", 0.75),
+    s("/contact", 0.7),
+    s("/learn", 0.7),
+    ...FUNDING.map((f) => s(`/funding/${f.slug}`, 0.8)),
+    ...INDUSTRIES.map((i) => s(`/industries/${i.slug}`, 0.85)),
+    ...ARTICLE_SLUGS.map((slug) => s(`/learn/${slug}`, 0.7)),
   ];
 }
