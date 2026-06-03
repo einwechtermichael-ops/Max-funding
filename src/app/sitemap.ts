@@ -8,6 +8,16 @@ const ARTICLE_SLUGS = [
   "merchant-cash-advance-for-retail-businesses",
 ];
 
+const LOCATION_SLUGS = [
+  "new-jersey",
+  "freehold-nj",
+  "monmouth-county",
+  "new-york",
+  "new-york-city",
+  "long-island",
+  "new-jersey-construction",
+];
+
 export default function sitemap(): MetadataRoute.Sitemap {
   const now = new Date();
   const s = (path: string, priority = 0.7): MetadataRoute.Sitemap[number] => ({
@@ -23,5 +33,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ...FUNDING.map((f) => s(`/funding/${f.slug}`, 0.8)),
     ...INDUSTRIES.map((i) => s(`/industries/${i.slug}`, 0.85)),
     ...ARTICLE_SLUGS.map((slug) => s(`/learn/${slug}`, 0.7)),
+    ...LOCATION_SLUGS.map((slug) => s(`/locations/${slug}`, 0.85)),
   ];
 }
