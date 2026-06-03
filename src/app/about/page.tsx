@@ -1,13 +1,10 @@
+"use client";
+
+import { useState } from "react";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { SITE } from "@/lib/config";
 import { breadcrumbSchema, JsonLd } from "@/lib/schema";
-
-export const metadata: Metadata = {
-  title: "About Joel Carbajal — MCA Broker",
-  description: "Joel Carbajal is a dedicated merchant cash advance broker known for speed, trust, and genuine client relationships. $50K to $500K funded in 24 hours.",
-  alternates: { canonical: "/about" },
-};
 
 const personSchema = {
   "@context": "https://schema.org",
@@ -22,7 +19,7 @@ const videoSchema = {
   "@context": "https://schema.org",
   "@type": "VideoObject",
   name: "$50K–$500K in 24 Hours — Meet Joel Carbajal, Max Funding MCA Broker",
-  description: "Meet Joel Carbajal — the merchant cash advance broker who gets construction companies, restaurants, retail stores, and trucking businesses funded in as little as 24 hours.",
+  description: "Meet Joel Carbajal — the merchant cash advance broker who gets construction, restaurants, retail, and trucking businesses funded in 24 hours.",
   thumbnailUrl: "https://i.ytimg.com/vi/2VWfPoRc5ME/maxresdefault.jpg",
   uploadDate: "2026-06-02",
   duration: "PT5S",
@@ -37,12 +34,69 @@ const VALUES = [
   ["Built on trust", "Joel's network grows almost entirely through referrals. When someone sends a friend to Joel, that is the highest endorsement in the business."],
 ];
 
+function JoelVideo() {
+  const [playing, setPlaying] = useState(false);
+  return (
+    <div style={{ display: "flex", flexDirection: "column", alignItems: "center", marginBottom: 40 }}>
+      <div
+        onClick={() => setPlaying(true)}
+        style={{
+          width: "min(300px,82vw)",
+          height: "min(300px,82vw)",
+          borderRadius: "50%",
+          overflow: "hidden",
+          position: "relative",
+          boxShadow: "0 20px 60px rgba(16,59,56,.25)",
+          border: "5px solid var(--cream-2)",
+          cursor: playing ? "default" : "pointer",
+          background: "#000",
+        }}
+      >
+        {!playing ? (
+          <>
+            <img
+              src="https://i.ytimg.com/vi/2VWfPoRc5ME/maxresdefault.jpg"
+              alt="Joel Carbajal — Max Funding MCA Broker"
+              style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "center 15%" }}
+            />
+            <div style={{ position: "absolute", inset: 0, display: "grid", placeItems: "center", background: "rgba(16,59,56,.18)" }}>
+              <div style={{ width: 68, height: 68, borderRadius: "50%", background: "rgba(255,255,255,.93)", display: "grid", placeItems: "center", boxShadow: "0 4px 24px rgba(0,0,0,.28)" }}>
+                <svg width="26" height="26" viewBox="0 0 24 24" fill="none">
+                  <path d="M8 5l13 7-13 7V5z" fill="#103B38"/>
+                </svg>
+              </div>
+            </div>
+          </>
+        ) : (
+          <iframe
+            src="https://www.youtube.com/embed/2VWfPoRc5ME?autoplay=1&mute=0&controls=0&rel=0&modestbranding=1&iv_load_policy=3&loop=1&playlist=2VWfPoRc5ME"
+            style={{
+              position: "absolute",
+              top: "50%", left: "50%",
+              transform: "translate(-50%,-50%) scale(1.8)",
+              width: "100%", height: "100%",
+              border: "none",
+            }}
+            allow="autoplay; encrypted-media"
+            allowFullScreen={false}
+            title="Meet Joel Carbajal"
+          />
+        )}
+      </div>
+      <div style={{ textAlign: "center", marginTop: 18 }}>
+        <div style={{ fontFamily: "var(--font-serif),serif", fontWeight: 600, fontSize: "1.3rem" }}>Joel Carbajal</div>
+        <div style={{ color: "var(--bronze)", fontSize: ".9rem", fontWeight: 600, marginTop: 4 }}>Founder and MCA Broker · Max Funding</div>
+      </div>
+    </div>
+  );
+}
+
 export default function AboutPage() {
   return (
     <>
-      <JsonLd data={breadcrumbSchema([{ name: "Home", path: "/" }, { name: "About", path: "/about" }])} />
       <JsonLd data={personSchema} />
       <JsonLd data={videoSchema} />
+      <JsonLd data={breadcrumbSchema([{ name: "Home", path: "/" }, { name: "About", path: "/about" }])} />
 
       <section className="hero" style={{ paddingBottom: 50 }}>
         <div className="wrap">
@@ -67,55 +121,7 @@ export default function AboutPage() {
 
       <section>
         <div className="wrap">
-          {/* Thumbnail circle — taps to open YouTube */}
-          <div style={{ display: "flex", flexDirection: "column", alignItems: "center", marginBottom: 40 }}>
-            <a
-              href="https://youtube.com/shorts/2VWfPoRc5ME"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="Watch Joel Carbajal intro video"
-              style={{
-                display: "block",
-                width: "min(280px, 80vw)",
-                height: "min(280px, 80vw)",
-                borderRadius: "50%",
-                overflow: "hidden",
-                position: "relative",
-                boxShadow: "0 20px 60px rgba(16,59,56,.25)",
-                border: "5px solid var(--cream-2)",
-                textDecoration: "none",
-              }}
-            >
-              <img
-                src="https://i.ytimg.com/vi/2VWfPoRc5ME/maxresdefault.jpg"
-                alt="Joel Carbajal — Max Funding MCA Broker"
-                style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "center 15%" }}
-              />
-              {/* Play button overlay */}
-              <div style={{
-                position: "absolute", inset: 0,
-                display: "grid", placeItems: "center",
-                background: "rgba(16,59,56,.2)",
-              }}>
-                <div style={{
-                  width: 64, height: 64, borderRadius: "50%",
-                  background: "rgba(255,255,255,.92)",
-                  display: "grid", placeItems: "center",
-                  boxShadow: "0 4px 20px rgba(0,0,0,.25)",
-                }}>
-                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                    <path d="M8 5l13 7-13 7V5z" fill="#103B38"/>
-                  </svg>
-                </div>
-              </div>
-            </a>
-            <div style={{ textAlign: "center", marginTop: 18 }}>
-              <div style={{ fontFamily: "var(--font-serif),serif", fontWeight: 600, fontSize: "1.3rem" }}>Joel Carbajal</div>
-              <div style={{ color: "var(--bronze)", fontSize: ".9rem", fontWeight: 600, marginTop: 4 }}>Founder and MCA Broker · Max Funding</div>
-            </div>
-          </div>
-
-          {/* Bio */}
+          <JoelVideo />
           <div style={{ maxWidth: 680, margin: "0 auto" }}>
             <div className="eyebrow" style={{ marginBottom: 14 }}>The person behind the funding</div>
             <p style={{ color: "var(--ink-soft)", marginBottom: 16, fontSize: "1.05rem" }}>Joel has a rare ability to make people feel at ease in high-stakes moments — heard, understood, and confident that they are in the right hands.</p>
