@@ -110,7 +110,7 @@ export function Header() {
 
         {/* Drawer footer */}
         <div style={{ padding: "0 28px", fontSize: ".82rem", color: "var(--ink-soft)" }}>
-          {SITE.email}
+
         </div>
       </div>
     </>
